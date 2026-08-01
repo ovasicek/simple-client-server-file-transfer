@@ -1,6 +1,7 @@
 # Client-Server App
 
 A simple client-server file transfer. Server stays up and listens for file uploads by clients. Client starts to send one file and then terminates.
+Created for an interview.
 
 
 ## Usage
