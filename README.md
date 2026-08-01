@@ -31,6 +31,13 @@ connect --> 8 bytes filename size --> N bytes filename --> 8 bytes filesize --> 
 Use ``$ test.sh``
 
 
+## Possible improvements
+
+- Multiple threads on the server to allow multiple client connections at the same time
+- Interactive client
+- Sending multiple files or a whole directory
+
+
 ## Python version
 
 Developed using Python 3.13.9 and Ubuntu WSL on Windows 11
