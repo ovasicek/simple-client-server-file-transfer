@@ -14,26 +14,31 @@ sleep 1
 
 rm -f uploaded_files/*
 
-echo -n "file.txt         "
+echo -n "file.txt          "
 python client.py test_files/file.txt > /dev/null || true
 if diff -q uploaded_files/file.txt test_files/file.txt > /dev/null; then echo "PASS"; else echo "FAIL"; fi
-rm -f uploaded_files/file.txt
 
-echo -n "file-empty.txt   "
+echo -n "file.txt (copy)   "
+python client.py test_files/file.txt > /dev/null || true
+if diff -q uploaded_files/file_copy.txt test_files/file.txt > /dev/null; then echo "PASS"; else echo "FAIL"; fi
+
+echo -n "file.txt (copy 2) "
+python client.py test_files/file.txt > /dev/null || true
+if diff -q uploaded_files/file_copy_copy.txt test_files/file.txt > /dev/null; then echo "PASS"; else echo "FAIL"; fi
+
+echo -n "file-empty.txt    "
 python client.py test_files/file-empty.txt > /dev/null || true
 if diff -q uploaded_files/file-empty.txt test_files/file-empty.txt > /dev/null; then echo "PASS"; else echo "FAIL"; fi
-rm -f uploaded_files/file-empty.txt
 
-echo -n "picture.png      "
+echo -n "picture.png       "
 python client.py test_files/picture.png > /dev/null || true
 if diff -q uploaded_files/picture.png test_files/picture.png > /dev/null; then echo "PASS"; else echo "FAIL"; fi
-rm -f uploaded_files/picture.png
 
-echo -n "file-50mb.txt   "
+echo -n "file-50mb.txt    "
 python client.py test_files/file-50mb.txt > /dev/null || true
 if diff -q uploaded_files/file-50mb.txt test_files/file-50mb.txt > /dev/null; then echo "PASS"; else echo "FAIL"; fi
-rm -f uploaded_files/file-50mb.txt
 
+rm -f uploaded_files/*
 echo
 echo "killing the server"
 kill $PID
