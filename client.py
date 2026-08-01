@@ -154,6 +154,7 @@ if __name__ == '__main__':
     try:
         client = Client(config, logger)
         client.send_file(filename, file_path)
+        del client  # explicit destruction
     except Exception as e:
         logger.log(f"Failed to send file: {e}", "ERROR")
         exit(1)
