@@ -36,6 +36,7 @@ Use ``$ test.sh``
 - Multiple threads on the server to allow multiple client connections at the same time
 - Interactive client
 - Sending multiple files or a whole directory
+- Checking that config files are properly defined
 
 
 ## Python version
